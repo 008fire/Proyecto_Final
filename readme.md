@@ -1,11 +1,15 @@
-# Web_control Entrega #3
+# Elaborado por: Francisco Román
+## Blog Web. Proyecto Final
 
-## Instrucciones de uso de la Web_control.
+## Instrucciones de uso de la Blog Web.
 
--Creacion de clientes, articulos y deliverys.
--Edición de cada uno desde la DB con preview en la web.
--Se puede eliminar directamente desde la web gestionando la DB con cada uno de los View.
--Posee sistema de busqueda sencillo, que realiza una consulta basica en la DB solo para articulos.
+-Creacion de publicaciones. Con titulo, comentario e imagen.
+-Creacion y manejo de usuarios con sistema completo de logeo / perfil.
+-Desde la lista de post puedes Ver, editar o eliminar cada publicación generada.
+-Posee enlace Acerca de mi
+
+## Posee su web de administrador para editar los modelos ( publicación y comentarios) y tambien para gestión de usuarios.
 
 
-## Por el momento no posee web de admin ( no esta configurado )
+### Link Video
+https://youtu.be/4DfWi4ZwWPo

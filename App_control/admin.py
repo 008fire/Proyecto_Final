@@ -1,10 +1,8 @@
 from django.contrib import admin
 
-from App_control.models import Articulos, Cliente, delivery
+from App_control.models import Publicacion, Comentario
 
 
-admin.site.register(Articulos)
-admin.site.register(Cliente)
-admin.site.register(delivery)
+admin.site.register(Publicacion)
+admin.site.register(Comentario)
 
-# Register your models here.

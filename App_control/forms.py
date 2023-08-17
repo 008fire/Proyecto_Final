@@ -57,7 +57,7 @@ class ActualizacionPublicacion(forms.ModelForm):
 class FormularioComentario(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ('mensaje',)
+        fields = ('nombre','mensaje',)
         widgets = {
             'mensaje' : forms.Textarea(attrs={'class': 'form-control'}),
         }

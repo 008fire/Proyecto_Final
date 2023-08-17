@@ -82,8 +82,9 @@ class PublicacionDetalle(LoginRequiredMixin, DetailView):
 class PublicacionUpdate(LoginRequiredMixin, UpdateView):
     model = Publicacion
     fields = ('titulo', 'contenido', 'imagencontenido')
-    success_url = reverse_lazy('UpdatePost')
     template_name= 'App_control/PublicacionUpdate.html'
+    def get_success_url(self):
+        return reverse_lazy('DetallePost', kwargs={'pk': self.object.pk})
 
 class PublicacionDelete(LoginRequiredMixin, DeleteView):
     model = Publicacion
@@ -94,7 +95,7 @@ class PublicacionDelete(LoginRequiredMixin, DeleteView):
 class PublicacionCreacion(LoginRequiredMixin, CreateView):
     model = Publicacion
     form_class = FormularioNuevoPublicacion
-    success_url = reverse_lazy('base')
+    success_url = reverse_lazy('ListaPost')
     template_name = 'App_control/PublicacionCreacion.html'
 
     def form_valid(self, form):
@@ -108,11 +109,14 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
     model = Comentario
     form_class = FormularioComentario
     template_name = 'App_control/comentario.html'
-    success_url = reverse_lazy('base')
+    success_url = reverse_lazy('DetallePost')
 
     def form_valid(self, form):
-        form.instance.comentario_id = self.kwargs['pk']
+        form.instance.comentario_id = self.kwargs['publicacion_id']
         return super(ComentarioPagina, self).form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('DetallePost', kwargs={'pk': self.kwargs['publicacion_id']})
 
 def about(request):
     return render(request, 'App_control/acercaDeMi.html', {})
