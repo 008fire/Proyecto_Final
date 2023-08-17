@@ -1,0 +1,39 @@
+{% extends 'App_control/base.html' %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{publicacion.titulo}}</h4></p>
+{% if publicacion.imagencontenido %}
+    <p><img src="{{publicacion.imagencontenido.url}}" alt=""></p>
+{% endif %}
+<p>Usuario: {{publicacion.usuario}}</p>
+<p>Titulo: {{publicacion.titulo}}</p>
+<p>Contenido: {{publicacion.contenido}}</p>
+<p>Fecha: {{publicacion.fechaPublicacion}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not publicacion.comentarios.all %}
+        No han comentado este Post
+    {% else %}
+        {% for comentario in publicacion.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'ComentarPost' publicacion.id %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}

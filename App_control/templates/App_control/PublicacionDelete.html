@@ -1,0 +1,39 @@
+{% extends 'App_control/base.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% if user.id == publicacion.usuario.id %}
+<div class="container text-center">
+
+<form method="post">{% csrf_token %}
+    Estás seguro que deseas eliminar esta publicación{{publicacion.titulo}} {{publicacion.contenido}} ?
+    <p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </p>
+</form>
+
+</div>
+{% else %}
+<div class="container">
+<h4>No tienes acceso a esta pagina!</h4>
+</div>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

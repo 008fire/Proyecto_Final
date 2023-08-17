@@ -1,0 +1,28 @@
+{% extends 'App_control/base.html' %}
+{% block content %}
+
+<br>
+<br>
+
+{% if user.id == publicacion.usuario.id %}
+<div class="container">
+
+    <h4>Editar Publicación</h4>
+    
+</div>
+
+<div class="container">
+    <div class="form-group">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>    
+</div>
+{% else %}
+<div class="container">
+<h4>No tienes acceso a esta pagina!</h4>
+</div>
+{% endif %}
+
+{% endblock %}

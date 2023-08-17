@@ -1,0 +1,47 @@
+{% extends 'App_control/base.html' %}
+{% block content %}
+
+<br>
+<br>
+<div class="container text-center">
+    <h1>Publicaciones</h1>
+</div>
+
+<br>
+<table class="table">
+    <tbody>
+      <tr>
+        <th>Usuario</th>
+        <th>Titulo</th>
+        <th>Contenido</th>
+        <td>Fecha</td>
+        <td>Imagen</td>
+        <td></td>
+      </tr>
+      {% for publicacion in object_list %}
+      <tr>
+        <td>{{ publicacion.usuario }}</td>
+        <td>{{ publicacion.titulo }}</td>
+        <td>{{ publicacion.contenido }}</td>
+        <td>{{ publicacion.imagen}}</td>
+      
+             <td>
+          <a href="{% url 'DetallePost' object.id%}">Ver</a>
+        </td>
+        <td>
+          <a href="{% url 'UpdatePost' object.id %}">Editar</a>
+        </td>
+        <td>
+          <a href="{% url 'DeletePost' object.id %}">
+            <i class="bi bi-trash"></i>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+{% endblock %}
