@@ -25,7 +25,7 @@ urlpatterns = [
     path('PublicacionDetalle/<int:pk>', PublicacionDetalle.as_view(), name='DetallePost'),
     path('PublicacionUpdate/<int:pk>', PublicacionUpdate.as_view(), name='UpdatePost'),
     path('PublicacionDelete/<int:pk>', PublicacionDelete.as_view(), name='DeletePost'),
-    path('ComentarioPagina/', ComentarioPagina.as_view(), name='ComentarPost'),
+    path('ComentarioPagina/<int:publicacion_id>/',ComentarioPagina.as_view(), name='ComentarPost'),
 
  
 ]

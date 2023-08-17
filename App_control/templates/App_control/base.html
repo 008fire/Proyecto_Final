@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        
 
     </head>
 
@@ -24,48 +25,28 @@
         <!-- Navigation-->
         <nav class="navbar navbar-dark bg-black static-top">
             <div class="container">
-                
+                <a class="navbar-brand" href="{% url 'base' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'CrearPost' %}">Crear Post</a>
                 <a class="navbar-brand" href="{% url 'ListaPost' %}">Lista Post</a>
-               
-                
-                
-                {% if request.user.is_authenticated %}
-                <div class="container">
-                <li class="nav-item">
-                  <span class="text-light"> Hola <strong>{{request.user.first_name}}</strong>!</span>
-                </li>
-                </div>
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'editar_perfil' %}"><span class="text-primary">Perfil</span></a>
-                </li>
-                </div>
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}"><span class="text-primary">Logout</span></a>
-                </li>
-                </div>
-                {% else %}
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}"><span class="text-primary">Login</span></a>
-                </li>
-                </div>
-                <div class="container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'registro' %}"><span class="text-primary">Registrate</span></a>
-                </li> 
-                </div>         
-              {% endif %}
-
-
-
-
-             
+            </div>
         </nav>
-        
-        
+        <nav class="navbar navbar-black bg-dark static-top">
+          <div class="container">
+            {% if request.user.is_authenticated %}
+
+              <span class="text-light"> Hola <strong>{{request.user.first_name}}</strong>!</span>
+              <a class="nav-link" href="{% url 'editar_perfil' %}"><span class="text-primary">Perfil</span></a>
+              <a class="nav-link" href="{% url 'logout' %}"><span class="text-primary">Logout</span></a>
+            {% else %}
+              <a class="nav-link" href="{% url 'login' %}"><span class="text-primary">Login</span></a>
+              <a class="nav-link" href="{% url 'registro' %}"><span class="text-primary">Registrate</span></a>
+
+            {% endif %}
+          </div>
+      </nav>       
+              
+         
+              
         {% block content %}
 
         

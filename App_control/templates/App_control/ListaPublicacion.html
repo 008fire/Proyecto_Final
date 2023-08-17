@@ -15,7 +15,6 @@
         <th>Titulo</th>
         <th>Contenido</th>
         <td>Fecha</td>
-        <td>Imagen</td>
         <td></td>
       </tr>
       {% for publicacion in object_list %}
@@ -23,7 +22,8 @@
         <td>{{ publicacion.usuario }}</td>
         <td>{{ publicacion.titulo }}</td>
         <td>{{ publicacion.contenido }}</td>
-        <td>{{ publicacion.imagen}}</td>
+        <td>{{ publicacion.fechaPublicacion}}</td>
+        
       
              <td>
           <a href="{% url 'DetallePost' publicacion.id%}">Ver</a>

@@ -77,15 +77,18 @@ class PublicacionLista(LoginRequiredMixin, ListView):
 class PublicacionDetalle(LoginRequiredMixin, DetailView):
     model = Publicacion
     success_url = reverse_lazy('DetallePost')
+    template_name= 'App_control/PublicacionDetalle.html'
 
 class PublicacionUpdate(LoginRequiredMixin, UpdateView):
     model = Publicacion
     fields = ('titulo', 'contenido', 'imagencontenido')
     success_url = reverse_lazy('UpdatePost')
+    template_name= 'App_control/PublicacionUpdate.html'
 
 class PublicacionDelete(LoginRequiredMixin, DeleteView):
     model = Publicacion
     success_url = reverse_lazy('ListaPost')
+    template_name= 'App_control/PublicacionDelete.html'
 
 
 class PublicacionCreacion(LoginRequiredMixin, CreateView):
