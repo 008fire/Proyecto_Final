@@ -26,10 +26,8 @@
             <div class="container">
                 
                 <a class="navbar-brand" href="{% url 'CrearPost' %}">Crear Post</a>
-                <a class="navbar-brand" href="{% url 'DetallePost' %}">Detalle Post</a>
                 <a class="navbar-brand" href="{% url 'ListaPost' %}">Lista Post</a>
-                <a class="navbar-brand" href="{% url 'UpdatePost' %}">Update Post</a>
-                <a class="navbar-brand" href="{% url 'DeletePost'  %}">Delete Post</a>
+               
                 
                 
                 {% if request.user.is_authenticated %}

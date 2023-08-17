@@ -22,9 +22,9 @@ urlpatterns = [
 
     path('PublicacionCreacion/', PublicacionCreacion.as_view(), name='CrearPost'),
     path('PublicacionLista/', PublicacionLista.as_view(), name='ListaPost'),
-    path('PublicacionDetalle/', PublicacionDetalle.as_view(), name='DetallePost'),
-    path('PublicacionUpdate/', PublicacionUpdate.as_view(), name='UpdatePost'),
-    path('PublicacionDelete/', PublicacionDelete.as_view(), name='DeletePost'),
+    path('PublicacionDetalle/<int:pk>', PublicacionDetalle.as_view(), name='DetallePost'),
+    path('PublicacionUpdate/<int:pk>', PublicacionUpdate.as_view(), name='UpdatePost'),
+    path('PublicacionDelete/<int:pk>', PublicacionDelete.as_view(), name='DeletePost'),
     path('ComentarioPagina/', ComentarioPagina.as_view(), name='ComentarPost'),
 
  
